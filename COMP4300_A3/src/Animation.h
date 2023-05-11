@@ -7,9 +7,11 @@ class Animation
 private:
 	sf::Sprite		m_sprite;
 	int				m_frameCount		= 0;
+	int             m_maxFrame			= 0;
 	int				m_currentFrame      = 0;
+	float           m_currentTime		= 0;
 	int				m_speed				= 0;
-	Vec2			m_size;
+	Vec2			m_size				= { 0, 0 };
 	std::string		m_name				= "Default";
 public:
 	Animation();
@@ -18,5 +20,5 @@ public:
 	bool hasEnded();
 	const std::string& getName() const;
 	const Vec2& getSize() const;
-	const sf::Sprite& getSprite() const;
+	sf::Sprite& getSprite();
 };

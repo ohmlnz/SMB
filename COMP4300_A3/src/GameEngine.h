@@ -15,6 +15,7 @@ private:
     Assets                                          m_assets;
     std::string                                     m_currentScene = "Menu";
     std::map<std::string, std::shared_ptr<Scene>>   m_scenes;
+    sf::View                                        m_view;
 
 public:
     GameEngine(const std::string& assetsPath);
@@ -30,6 +31,7 @@ public:
     // game system
     std::shared_ptr<Scene> currentScene();
     sf::RenderWindow& currentWindow();
+    sf::View& currentView();
     Assets& assets();
     void loadAssets(const std::string& assetsPath);
     void changeScene(const std::string& name, std::shared_ptr<Scene>);

@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Vec2.h"
+#include "Animation.h"
 
 class Base {
 public:
@@ -10,10 +11,11 @@ public:
 class CTransform : public Base
 {
 public:
-	Vec2 position = { 0, 0 };
-	Vec2 prevPosition = { 0, 0 };
-	Vec2 velocity = { 0, 0 };
-	Vec2 scale = { 1, 1 };
+	Vec2 position			= { 0, 0 };
+	Vec2 velocity			= { 0, 0 };
+	Vec2 scale				= { 1, 1 };
+	Vec2 overlap			= { 0, 0 };
+	Vec2 previousPosition	= { 0, 0 };
 	CTransform() {};
 	CTransform(Vec2 position)
 		: position(position)
@@ -56,17 +58,13 @@ public:
 class CAnimation : public Base
 {
 public:
-	sf::Sprite sprite;
-	std::string name;
-	Vec2 size;
+	Animation animation;
 	Vec2 midPoint = { 0, 0 };
 
 	CAnimation() {};
-	CAnimation(const std::string& name, const Vec2& size, const sf::Sprite& sprite)
-		: name(name)
-		, size(size)
-		, sprite(sprite)
-		, midPoint(size.x / 2, size.y / 2)
+	CAnimation(const Animation& animation)
+		: animation(animation)
+		, midPoint(Vec2(animation.getSize().x / 2, animation.getSize().y / 2))
 	{};
 };
 
@@ -82,13 +80,25 @@ public:
 
 class CState : public Base
 {
+
 public:
-	std::string currentDirection	= "right";
-	bool right						= false;
-	bool left						= false;
-	bool jump						= false;
-	bool shoot						= false;
-	bool up							= false;
-	bool down						= false;
+	enum State {
+		STANDING,
+		JUMPING,
+		WALKING,
+		SHOOTING
+	};
+
+	bool shoot = false; 
+	bool up = false;
+	bool isJumping = false;
+	bool left = false;
+	bool right = false;
+	short int initialJumpPosition = 0;
+	// TODO: find better way
+	std::string currentDirection = "right";
+
+	State currentState = State::STANDING;
+	State previousState;
 	CState() {};
 };

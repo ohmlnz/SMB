@@ -10,6 +10,8 @@ void GameEngine::init(const std::string& assetsPath)
 	loadAssets(assetsPath);
     m_window.create(sf::VideoMode(1920, 1080), "Super Mario Bruster");
     m_window.setFramerateLimit(60);
+	m_view.reset(sf::FloatRect(0,0, 1920, 1080));
+	m_window.setView(m_view);
 	changeScene("Menu", std::make_shared<SceneMenu>(this));
 }
 
@@ -64,6 +66,11 @@ std::shared_ptr<Scene> GameEngine::currentScene()
 sf::RenderWindow& GameEngine::currentWindow()
 {
     return m_window;
+}
+
+sf::View& GameEngine::currentView()
+{
+	return m_view;
 }
 
 void GameEngine::loadAssets(const std::string& assetsPath)

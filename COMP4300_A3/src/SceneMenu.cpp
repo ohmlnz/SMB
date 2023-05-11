@@ -11,7 +11,7 @@ void SceneMenu::init()
 	m_mainTitle.setFont(m_gameEngine->assets().getFont("Mario"));
 	m_mainTitle.setCharacterSize(65);
 	m_mainTitle.setFillColor(sf::Color::White);
-	m_mainTitle.setString("Super Mario Bruster!");
+	m_mainTitle.setString("Super Megaman Bros!");
 	m_mainTitle.setOrigin(m_mainTitle.getGlobalBounds().width / 2, 0);
 	m_mainTitle.setPosition(m_gameEngine->currentWindow().getSize().x / 2.0, 20);
 

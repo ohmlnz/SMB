@@ -13,6 +13,7 @@ protected:
 	EntityManager				m_entityManager;
 	int							m_currentFrame		= 0;
 	std::map<int, std::string>	m_actionMap;
+	bool						m_debugMode			= false;
 public:
 	Scene(class GameEngine* gameEngine)
 		: m_gameEngine(gameEngine)

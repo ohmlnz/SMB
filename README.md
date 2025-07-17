@@ -1,36 +1,44 @@
 # Super Mega Bruster
 
-Super Mega Bruster is a 2D platformer game built using C++ and the SFML library. The game combines elements from classic games like Super Mario and Megaman, providing an engaging and nostalgic experience.
+---
 
+A retro-inspired 2D platformer built in C++ with SFML, blending the worlds of Super Mario and Megaman! Jump, run, and shoot your way through creative levels, nostalgic visuals, and classic platforming action.
 
-## Key Components
+## Features
 
-- **GameEngine**: The main class that initializes the game, loads assets, and manages the game loop.
-- **Scene**: An abstract class representing different scenes in the game (e.g., menu, level one).
-- **SceneMenu**: A class representing the main menu scene.
-- **SceneLevelOne**: A class representing the first level of the game.
-- **Entity**: A class representing game entities with various components.
-- **EntityManager**: A class that manages all game entities.
-- **Components**: Various components that can be attached to entities (e.g., transform, animation, bounding box).
-- **Assets**: A class that loads and manages game assets like textures, animations, sounds, and fonts.
-- **Physics**: A class that handles collision detection and resolution.
-- **Vec2**: A utility class for 2D vector operations.
+- **Classic Platforming**: Tight controls, challenging jumps, and enemy encounters.
+- **Hybrid Aesthetics**: Sprites and assets inspired by both Mario and Megaman franchises.
+- **Multiple Levels**: Play through at least one complete level, with more to come.
+- **Custom Assets**: Unique pixel art, animations, and sound effects.
+- **Debug Mode**: Toggle debug info for development or curiosity.
+- **Keyboard Controls**: Intuitive, responsive input for smooth gameplay.
 
-## Dependencies
+## Getting Started
 
-- [SFML](https://www.sfml-dev.org/): Simple and Fast Multimedia Library used for graphics, windowing, and input handling.
+### Prerequisites
+- C++ compiler (supporting C++11 or later)
+- [SFML](https://www.sfml-dev.org/) (Simple and Fast Multimedia Library)
 
-## Building the Project
-
-To build the project, compile the source files with your favorite C++ compiler. Ensure that you have SFML installed and properly configured in your development environment.
-
-## Running the Game
-
-After building the project, run the executable. The game will start with the main menu, where you can select a level to play.
+### Build Instructions
+1. **Install SFML** on your system and ensure your compiler can find the SFML headers and libraries.
+2. **Clone this repository**:
+   ```sh
+   git clone <repo-url>
+   cd SMB
+   ```
+3. **Compile the source files** (example using g++):
+   ```sh
+   g++ -std=c++11 -I<path-to-sfml-include> -L<path-to-sfml-lib> *.cpp -lsfml-graphics -lsfml-window -lsfml-system -o SuperMegaBruster
+   ```
+   Adjust the include/library paths as needed for your setup.
+4. **Run the game**:
+   ```sh
+   ./SuperMegaBruster
+   ```
 
 ## Controls
 
-- **Arrow Keys**: Navigate the menu
+- **Arrow Keys**: Navigate menu
 - **Enter**: Select menu option
 - **A**: Move left
 - **D**: Move right
@@ -38,7 +46,3 @@ After building the project, run the executable. The game will start with the mai
 - **Space**: Shoot
 - **Escape**: Pause
 - **P**: Toggle debug mode
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
